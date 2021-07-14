@@ -45,7 +45,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 const Blog: React.FC<{ data: Data }> = ({data}) => {
     const router = useRouter()
     const currentPage = parseInt(router.query.page as string)
-
     const handlePageClick = (data) => {
         router.push(`/?page=${data.selected + 1}`)
     }

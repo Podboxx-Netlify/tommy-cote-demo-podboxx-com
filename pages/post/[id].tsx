@@ -40,19 +40,13 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 const Post: React.FC<{ data: Data }> = ({data}) => {
     const router = useRouter()
     const playerId = router.query.id == 'preview' ? '38010' : router.query.id
-    useEffect(() => {
-        // If in preview mode send message when page is loaded
-        if (router.query.id == 'preview') {
-            router.isReady && console.log('message');
-            router.isReady && parent.postMessage('Ready', '*')
-        }
-    }, [router.isReady, router.query.id])
+
     return (
         <>
             <div
-                className="w-full md:rounded-2xl shadow-lg flex flex-col sm:flex-col select-none gap-4 lg:border dark:bg-cards-dark">
+                className="w-full md:rounded-md shadow-lg flex flex-col select-none gap-4 mt-12 bg-12dp">
                 <button
-                    className="text-left p-5 w-28 font-bold text-gray-300 text-lg hover:text-red-500 focus:outline-none"
+                    className="text-left p-5 w-28 font-bold text-lg hover:text-red-500 focus:outline-none"
                     onClick={() => {
                         router.query.id !== 'preview' &&
                         router.back()
@@ -67,11 +61,14 @@ const Post: React.FC<{ data: Data }> = ({data}) => {
                 </article>
                 <br/>
                 {data.title && router.query.id &&
-                <iframe className='' height='330'
-                        src={"https://player.podboxx.com/" + playerId}
+                    <div className="min-h-96 h-72">
+                <iframe className='h-80 w-full'
+                        // src={"http://localhost:8000/" + playerId + "?blog=true"}
+                        src={"http://localhost:8000/39285?blog=true"}
                         allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen/>
-                }
+                    </div>
+                        }
             </div>
         </>
     )
