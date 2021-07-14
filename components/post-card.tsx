@@ -23,7 +23,7 @@ const PostCard: React.FC<{ data: Post }> = ({data}) => {
             <div
                 className="flex flex-col sm:flex-row p-2 w-auto lg:w-full sm:p-4 h-auto sm:h-56 gap-5 select-none rounded-md bg-12dp">
                 <Image className='rounded-md' alt={data.title + ' image'} src={data.img_url}
-                       quality='80' width='300' height='192'/>
+                       quality='80' width='300' height='192' unoptimized={true}/>
                 <div className="flex sm:flex-1 flex-col gap-2 p-1">
                     <div className='grid grid-cols-2 md:grid-cols-6'>
                         <p className="text-sm">
