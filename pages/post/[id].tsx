@@ -52,10 +52,10 @@ const Post: React.FC<{ data: Data }> = ({data}) => {
                         router.back()
                     }}>Go Back
                 </button>
-                <article className="prose prose-sm sm:prose lg:prose-lg mx-auto">
+                <article className="prose prose-sm lg:prose-lg mx-auto max-w-screen-lg px-5">
                     <h1 className='text-center capitalize'>{data.title || 'Error loading the episode'}</h1>
                     {data.blog_content !== null &&
-                    <div
+                    <div className="max-w-none"
                         dangerouslySetInnerHTML={{__html: data.blog_content}}/>
                     }
                 </article>

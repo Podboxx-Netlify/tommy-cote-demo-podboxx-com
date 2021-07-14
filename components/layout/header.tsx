@@ -212,7 +212,7 @@ export default function Header({...props}) {
                     </div>
                 </div>
             </header>
-            {window.location.pathname === '/' &&
+            {typeof window !== 'undefined' && window.location?.pathname === '/' &&
             <div className="hero h-72 mb-5" style={{
                 backgroundImage: `url('./header_blog.png')`,
                 backgroundSize: 'cover',
