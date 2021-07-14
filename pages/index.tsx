@@ -1,9 +1,8 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import {GetServerSideProps} from 'next'
 import PostCard from "../components/post-card";
 import ReactPaginate from 'react-paginate';
 import {useRouter} from "next/router";
-import Image from "next/image"
 
 interface Data {
     website?: [title: string]
@@ -23,8 +22,7 @@ interface Episodes {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-    // const res = await fetch(`http://localhost:4000/api/${process.env.station_id}/blog?page=${context.query.page}`)
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}${process.env.station_id}/blog?channel=${context.query.channel_id || null}&page=${context.query.page || 1}`)
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}${process.env.NEXT_PUBLIC_STATION_ID}/blog?channel=${context.query.channel_id || null}&page=${context.query.page || 1}`)
     if (res.status !== 200) {
         const data = {}
         return {
@@ -94,6 +92,3 @@ const Blog: React.FC<{ data: Data }> = ({data}) => {
 }
 
 export default Blog
-//darkmode
-//#8c0909 header
-//#151a23 bg

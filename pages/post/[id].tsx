@@ -18,8 +18,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
             },
         }
     }
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}${process.env.station_id}/podcast/${context.query.id}`)
-    // const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/podcast/${context.query.id}`)
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}${process.env.NEXT_PUBLIC_STATION_ID}/podcast/${context.query.id}`)
     if (res.status !== 200) {
         const data = {}
         return {
@@ -63,8 +62,7 @@ const Post: React.FC<{ data: Data }> = ({data}) => {
                 {data.title && router.query.id &&
                 <div className="min-h-96 h-72 mb-10">
                     <iframe className='h-80 w-full mb-5'
-                        // src={"http://localhost:8000/" + playerId + "?blog=true"}
-                            src={"http://localhost:8000/39285?blog=true"}
+                            src={`https://player.podboxx.com/${router.query.id}?blog=true`}
                             allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
                             allowFullScreen/>
                 </div>
@@ -73,6 +71,5 @@ const Post: React.FC<{ data: Data }> = ({data}) => {
         </>
     )
 }
-
 
 export default Post

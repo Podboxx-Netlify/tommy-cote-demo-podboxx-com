@@ -11,17 +11,23 @@ Router.events.on('routeChangeError', () => NProgress.done())
 function MyApp({Component, pageProps, websiteData}) {
     return (
         <Layout website={websiteData}>
+            <title>{websiteData && websiteData.title || 'Error'}</title>
             <Component {...pageProps} website={websiteData}/>
         </Layout>
     )
 }
 
 MyApp.getInitialProps = async (Component, ctx) => {
-    const websiteRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}${process.env.station_id}/website`)
-    const websiteData = await websiteRes.json()
+    const websiteRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}${process.env.NEXT_PUBLIC_STATION_ID}/website`)
+    let websiteData;
     let pageProps = {};
     if (Component.getInitialProps) {
         pageProps = await Component.getInitialProps(ctx);
+    }
+    if (websiteRes.status !== 200) {
+        websiteData = {}
+    } else {
+        websiteData = await websiteRes.json()
     }
     return {pageProps, websiteData};
 }
