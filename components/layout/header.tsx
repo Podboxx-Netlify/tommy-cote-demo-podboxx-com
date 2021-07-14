@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Image from 'next/image'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {
@@ -13,7 +13,13 @@ import {
 import {useRouter} from "next/router";
 
 export default function Header({...props}) {
+    const [heroImage, setHeroImage] = useState(false)
     const router = useRouter()
+
+    useEffect(() => {
+        router.pathname === "/" && setHeroImage(true)
+    }, [])
+
     return (
         <>
             <header className="sticky z-10 top-0">
@@ -212,7 +218,8 @@ export default function Header({...props}) {
                     </div>
                 </div>
             </header>
-            {typeof window !== 'undefined' && window.location?.pathname === '/' &&
+
+            {heroImage &&
             <div className="hero h-72 mb-5" style={{
                 backgroundImage: `url('./header_blog.png')`,
                 backgroundSize: 'cover',

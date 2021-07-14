@@ -11,7 +11,6 @@ Router.events.on('routeChangeError', () => NProgress.done())
 function MyApp({Component, pageProps, websiteData}) {
     return (
         <Layout website={websiteData}>
-            <title>{websiteData && websiteData.title || 'Error'}</title>
             <Component {...pageProps} website={websiteData}/>
         </Layout>
     )

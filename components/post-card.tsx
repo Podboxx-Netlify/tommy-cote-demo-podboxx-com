@@ -22,10 +22,8 @@ const PostCard: React.FC<{ data: Post }> = ({data}) => {
         <>
             <div
                 className="flex flex-col sm:flex-row p-2 w-auto lg:w-full sm:p-4 h-auto sm:h-56 gap-5 select-none rounded-md bg-12dp">
-                {/*<div >*/}
                 <Image className='rounded-md' alt={data.title + ' image'} src={data.img_url}
                        quality='80' width='300' height='192'/>
-                {/*</div>*/}
                 <div className="flex sm:flex-1 flex-col gap-2 p-1">
                     <div className='grid grid-cols-2 md:grid-cols-6'>
                         <p className="text-sm">
@@ -38,12 +36,11 @@ const PostCard: React.FC<{ data: Post }> = ({data}) => {
                         </p>
                         }
                     </div>
-
                     <h1 className="text-xl line-clamp-3 overflow-hidden overflow-ellipsis">
                         {data.title}
                     </h1>
                     <p className="line-clamp-3 overflow-hidden overflow-ellipsis">
-                        {data.description.length > 500 ? data.description.substring(0,500) + '...': data.description}
+                        {data.description.length > 500 ? data.description.substring(0, 500) + '...' : data.description}
                     </p>
                     <div className="flex gap-5 mt-auto">
                         <button className="btn btn-outline btn-primary ml-auto flex btn-sm">

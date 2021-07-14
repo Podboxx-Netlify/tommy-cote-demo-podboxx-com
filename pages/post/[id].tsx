@@ -1,5 +1,5 @@
 import {GetServerSideProps} from 'next'
-import React, {useEffect} from "react";
+import React from "react";
 import {useRouter} from "next/router";
 
 interface Data {
@@ -56,19 +56,19 @@ const Post: React.FC<{ data: Data }> = ({data}) => {
                     <h1 className='text-center capitalize'>{data.title || 'Error loading the episode'}</h1>
                     {data.blog_content !== null &&
                     <div className="max-w-none"
-                        dangerouslySetInnerHTML={{__html: data.blog_content}}/>
+                         dangerouslySetInnerHTML={{__html: data.blog_content}}/>
                     }
                 </article>
                 <br/>
                 {data.title && router.query.id &&
-                    <div className="min-h-96 h-72">
-                <iframe className='h-80 w-full'
+                <div className="min-h-96 h-72 mb-10">
+                    <iframe className='h-80 w-full mb-5'
                         // src={"http://localhost:8000/" + playerId + "?blog=true"}
-                        src={"http://localhost:8000/39285?blog=true"}
-                        allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen/>
-                    </div>
-                        }
+                            src={"http://localhost:8000/39285?blog=true"}
+                            allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen/>
+                </div>
+                }
             </div>
         </>
     )
