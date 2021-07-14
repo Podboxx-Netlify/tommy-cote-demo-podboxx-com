@@ -3,12 +3,23 @@ import {GetServerSideProps} from 'next'
 import PostCard from "../components/post-card";
 import ReactPaginate from 'react-paginate';
 import {useRouter} from "next/router";
+import Image from "next/image"
 
 interface Data {
     website?: [title: string]
-    podcasts?: [id: number, title: string, description: string, image_url: string, publication_date: string, blog_content: string]
+    podcasts?: Episodes[]
     name: string
     pages: number
+}
+
+interface Episodes {
+    id: number,
+    title: string,
+    description: string,
+    image_url: string,
+    publication_date: string,
+    blog_content: string,
+    duration: string
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
@@ -34,22 +45,15 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 const Blog: React.FC<{ data: Data }> = ({data}) => {
     const router = useRouter()
     const currentPage = parseInt(router.query.page as string)
-    useEffect(() => {
-        localStorage.channel && localStorage.channel !== router.query.channel && router.replace({
-            pathname: '/',
-            query: {channel_id: localStorage.channel},
-        }, '/')
-    },[router.query.channel])
-
 
     const handlePageClick = (data) => {
         router.push(`/?page=${data.selected + 1}`)
     }
-    console.log(router.query.channel_id)
+
     return (
         <>
             {data.podcasts && Object.keys(data.podcasts).length > 0 ?
-                <div className="grid grid-cols-1 gap-5 lg:grid-cols-2 justify-items-center justify-center">
+                <div className="grid grid-cols-1 gap-5 justify-items-center justify-center">
                     {Object.keys(data.podcasts).map((value, index) =>
                         <div key={index} className='w-full'>
                             <PostCard data={{
@@ -58,7 +62,8 @@ const Blog: React.FC<{ data: Data }> = ({data}) => {
                                 description: data.podcasts[index]['description'],
                                 blog_content: data.podcasts[index]['blogContent'],
                                 img_url: data.podcasts[index]['image_url'] || '/header_card.png',
-                                publication_date: data.podcasts[index]['publication_date']
+                                publication_date: data.podcasts[index]['publication_date'],
+                                duration: data.podcasts[index]['duration']
                             }}/>
                         </div>
                     )}

@@ -21,6 +21,32 @@ module.exports = {
                 'main-dark': '#151a23',
                 'header-red': '#4d1e1f',
                 'post': '#202527',
+                'demo-dark': '#191919',
+                'demo-nav-bar': '#333333',
+                'demo-bg': '#222222',
+                '00dp': '#121212',
+                '01dp': '#1e1e1e',
+                '02dp': '#222222',
+                '03dp': '#242424',
+                '04dp': '#272727',
+                '06dp': '#2c2c2c',
+                '08dp': '#2e2e2e',
+                '12dp': '#333333',
+                '16dp': '#343434',
+                '24dp': '#383838',
+
+                // | elevation | overlay |   hex   |
+                // | --------- | ------- | ------- |
+                // |   00dp    |    0%   | #121212 |
+                // |   01dp    |    5%   | #1e1e1e |
+                // |   02dp    |    7%   | #222222 |
+                // |   03dp    |    8%   | #242424 |
+                // |   04dp    |    9%   | #272727 |
+                // |   06dp    |   11%   | #2c2c2c |
+                // |   08dp    |   12%   | #2e2e2e |
+                // |   12dp    |   14%   | #333333 |
+                // |   16dp    |   15%   | #343434 |
+                // |   24dp    |   16%   | #383838 |
             },
             typography: (theme) => ({
                 DEFAULT: {
@@ -76,10 +102,35 @@ module.exports = {
     ],
     daisyui: {
         styled: true,
-        themes: false,
         base: true,
         utils: true,
         logs: true,
         rtl: false,
+        themes: [
+            {
+                'theme-podboxx': {
+                    'primary': '#b34d50',
+                    'primary-focus': '#6b2e30',
+                    'primary-content': '#ffffff',
+                    'secondary': '#6b2e30',
+                    'secondary-focus': '#562526',
+                    'secondary-content': '#ffffff',
+                    'accent': '#9f8360',
+                    'accent-focus': '#604e39',
+                    'accent-content': '#ffffff',
+                    'neutral': '#242424',
+                    'neutral-focus': '#343434',
+                    'neutral-content': '#ffffff',
+                    'base-100': '#333333',
+                    'base-200': '#242424',
+                    'base-300': '#343434',
+                    'base-content': '#ffffff',
+                    'info': '#2094f3',
+                    'success': '#009485',
+                    'warning': '#ff9900',
+                    'error': '#ff5724',
+                },
+            },
+        ],
     },
 }

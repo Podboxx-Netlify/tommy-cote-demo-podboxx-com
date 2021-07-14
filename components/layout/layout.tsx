@@ -6,7 +6,7 @@ import React from "react";
 export default function Layout({...props}) {
     return (
         // <UserProvider>
-        <div className="flex flex-col min-h-screen bg:white dark:bg-main-dark">
+        <div className="flex flex-col min-h-screen bg-03dp">
             <Header data={props.website}/>
             <div className='container mx-auto flex-grow'>
                 {props.children}

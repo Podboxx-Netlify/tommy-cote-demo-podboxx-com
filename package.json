@@ -10,11 +10,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/free-brands-svg-icons": "^5.15.3",
+    "@fortawesome/free-regular-svg-icons": "^5.15.3",
+    "@fortawesome/react-fontawesome": "^0.1.14",
     "@netlify/plugin-nextjs": "^3.5.0",
     "@tailwindcss/line-clamp": "^0.2.1",
     "@tailwindcss/typography": "^0.4.1",
     "daisyui": "^1.6.0",
-    "moment": "^2.29.1",
+    "dayjs": "^1.10.6",
     "next": "11.0.0",
     "next-seo": "^4.25.1",
     "nprogress": "^0.2.0",
