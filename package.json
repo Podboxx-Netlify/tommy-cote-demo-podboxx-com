@@ -1,5 +1,5 @@
 {
-  "name": "nextjs-template",
+  "name": "demo-podcast-podboxx",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -14,11 +14,9 @@
     "@tailwindcss/line-clamp": "^0.2.1",
     "@tailwindcss/typography": "^0.4.1",
     "daisyui": "^1.6.0",
-    "j-toker": "git://github.com/groupefungo/fungo-j-toker",
     "moment": "^2.29.1",
     "next": "11.0.0",
     "next-seo": "^4.25.1",
-    "nookies": "^2.5.2",
     "nprogress": "^0.2.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
