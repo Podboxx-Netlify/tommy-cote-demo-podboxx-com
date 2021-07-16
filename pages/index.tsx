@@ -53,6 +53,10 @@ const Blog: React.FC<{ data: Data }> = ({data}) => {
     const [tagFilter, setTagFilter] = useState<string[]>([])
 
     useEffect(() => {
+        router.query.tags === undefined && setTagFilter([])
+    }, [router.query])
+
+    useEffect(() => {
         if (tagFilter.length > 0) {
             let tags = encodeURIComponent(tagFilter.join(","))
             router.push(`/?tags=${tags}`)
