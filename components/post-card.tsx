@@ -17,6 +17,10 @@ interface Post {
     img_url?: string
     duration?: string
     tags?: Tags[]
+    handleTagFilter?: (tag: string) => void
+    addFilter?: (tag: string) => void
+    removeFilter?: (tag: string) => void
+    currentFilter?: string[]
 }
 
 interface Tags {
@@ -26,13 +30,17 @@ interface Tags {
 const PostCard: React.FC<{ data: Post }> = ({data}) => {
     dayjs.extend(utc)
     const router = useRouter()
+    // console.log(router.query.tags)
+    console.log(data.currentFilter)
 
-    const handleTagClick = (data) => {
-        console.log(data)
-        router.replace(`/search?tags=${data}`).then()
+    // const handleTagClick = (data) => {
+    //     router.replace(`/?tags=${data}`).then()
+        // router.push(`/?tags=${data}`)
+    // }
+    const handleFilter = (value: string) => {
+        data.currentFilter.indexOf(value) === -1 ? data.addFilter(value):data.removeFilter(value)
     }
 
-    console.log(data.tags.map(t => t.name))
     return (
         <>
             <div
@@ -59,13 +67,19 @@ const PostCard: React.FC<{ data: Post }> = ({data}) => {
                     </p>
                     <div className="flex gap-2 mt-auto whitespace-pre-wrap flex-wrap">
                         {data.tags.length > 0 && data.tags.map(t => t.name).map((value, index) =>
-                            <Link href='/'>
-                                <button key={index} className="btn btn-secondary btn-xs px-2"
-                                        onClick={() => handleTagClick(value)}>
-                                    <span className='whitespace-pre-wrap'>
-                                    {value.length > 25 ? value.substring(0,25) + '..' : value}</span>
-                                </button>
-                            </Link>
+                            <button key={index} className="btn btn-secondary btn-xs px-2"
+                                    onClick={() => handleFilter(value)}
+                            >
+                                {data.currentFilter?.includes(value) &&
+                                <svg fill="none" viewBox="0 0 24 24"
+                                     className="inline-block w-4 h-4 mr-1 stroke-current">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                                          d="M6 18L18 6M6 6l12 12"/>
+                                </svg>
+                                }
+                                <span className='whitespace-pre-wrap'>
+                                    {value.length > 25 ? value.substring(0, 25) + '..' : value}</span>
+                            </button>
                         )}
                         <button className="btn btn-outline btn-primary ml-auto flex btn-sm">
                             <Link href={{pathname: '/post/[id]', query: {id: data.id}}}><a>View episode</a></Link>
