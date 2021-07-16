@@ -54,7 +54,7 @@ const Blog: React.FC<{ data: Data }> = ({data}) => {
 
     useEffect(() => {
         router.query.tags === undefined && setTagFilter([])
-    }, [router.query])
+    }, [router.query.tags])
 
     useEffect(() => {
         if (tagFilter.length > 0) {
