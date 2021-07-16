@@ -17,8 +17,9 @@ interface Episodes {
     description: string,
     image_url: string,
     publication_date: string,
-    blog_content: string,
-    duration: string
+    blog_content?: string,
+    duration?: string,
+    tags?: Array<{name: string}>
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
@@ -44,7 +45,7 @@ const Blog: React.FC<{ data: Data }> = ({data}) => {
     const router = useRouter()
     const currentPage = parseInt(router.query.page as string)
     const handlePageClick = (data) => {
-        router.push(`/?page=${data.selected + 1}`)
+        router.push(`/?page=${data.selected + 1}`).then()
     }
 
     return (
@@ -60,7 +61,8 @@ const Blog: React.FC<{ data: Data }> = ({data}) => {
                                 blog_content: data.podcasts[index]['blogContent'],
                                 img_url: data.podcasts[index]['image_url'] || '/header_card.png',
                                 publication_date: data.podcasts[index]['publication_date'],
-                                duration: data.podcasts[index]['duration']
+                                duration: data.podcasts[index]['duration'],
+                                tags: data.podcasts[index]['tags']
                             }}/>
                         </div>
                     )}
