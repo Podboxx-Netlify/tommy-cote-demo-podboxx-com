@@ -5,7 +5,6 @@ import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faCalendarAlt, faClock} from '@fortawesome/free-regular-svg-icons'
-import {useRouter} from "next/router";
 
 
 interface Post {
@@ -29,18 +28,9 @@ interface Tags {
 
 const PostCard: React.FC<{ data: Post }> = ({data}) => {
     dayjs.extend(utc)
-    const router = useRouter()
-    // console.log(router.query.tags)
-    console.log(data.currentFilter)
-
-    // const handleTagClick = (data) => {
-    //     router.replace(`/?tags=${data}`).then()
-        // router.push(`/?tags=${data}`)
-    // }
     const handleFilter = (value: string) => {
-        data.currentFilter.indexOf(value) === -1 ? data.addFilter(value):data.removeFilter(value)
+        data.currentFilter.indexOf(value) === -1 ? data.addFilter(value) : data.removeFilter(value)
     }
-
     return (
         <>
             <div
