@@ -37,6 +37,11 @@ export default function Header({...props}) {
                         />
                     </div>
                     <div className="navbar-center hidden px-2 mx-2 lg:flex">
+                        <div className="flex items-stretch">
+                            <a className="btn btn-ghost btn-sm rounded-btn" onClick={() => router.replace('/')}>
+                                Home
+                            </a>
+                        </div>
                     </div>
                     <div className="navbar-end">
                         <div className="flex items-stretch invisible md:visible">
