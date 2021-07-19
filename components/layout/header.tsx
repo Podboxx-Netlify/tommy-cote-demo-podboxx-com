@@ -225,7 +225,7 @@ export default function Header({...props}) {
             </header>
 
             {heroImage &&
-            <div className="hero h-72 mb-5" style={{
+            <div className="hero h-72" style={{
                 backgroundImage: `url('./header_blog.png')`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'top',

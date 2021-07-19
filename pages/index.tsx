@@ -26,9 +26,9 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     let uri
     let baseUri = `${process.env.NEXT_PUBLIC_API_URL}${process.env.NEXT_PUBLIC_STATION_ID}`
     if (context.query.tags !== undefined) {
-        uri = `${baseUri}/tags_blog?tags=${context.query.tags}`
+        uri = `${baseUri}/tags_blog?tags=${context.query.tags}&channel=false`
     } else {
-        uri = `${baseUri}/blog?channel=${context.query.channel_id || null}&page=${context.query.page || 1}`
+        uri = `${baseUri}/blog?channel=${context.query.channel_id || false}&page=${context.query.page || 1}`
     }
     const res = await fetch(uri)
     if (res.status !== 200) {
@@ -78,7 +78,7 @@ const Blog: React.FC<{ data: Data }> = ({data}) => {
     return (
         <>
             {data.podcasts && Object.keys(data.podcasts).length > 0 ?
-                <div className="grid grid-cols-1 gap-5 justify-items-center justify-center">
+                <div className="grid grid-cols-1 gap-5 justify-items-center justify-center mt-12">
                     {Object.keys(data.podcasts).map((value, index) =>
                         <div key={index} className='w-full'>
                             <PostCard data={{
