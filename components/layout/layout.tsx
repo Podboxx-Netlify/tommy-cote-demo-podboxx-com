@@ -10,7 +10,6 @@ export default function Layout({...props}) {
                  style={{
                      backgroundImage: `url('./codeboxx-logo.png')`,
                      backgroundSize: 'contain',
-                     // backgroundPosition: 'top',
                      backgroundRepeat: 'no-repeat',
                      marginTop: '390px'
                  }}/>
@@ -21,7 +20,6 @@ export default function Layout({...props}) {
                  style={{
                      backgroundImage: `url('./codeboxx-logo.png')`,
                      backgroundSize: 'contain',
-                     // backgroundAttachment: 'scroll',
                      backgroundPosition: 'top',
                      backgroundRepeat: 'no-repeat',
                  }}/>
