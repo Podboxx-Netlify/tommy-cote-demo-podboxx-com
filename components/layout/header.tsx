@@ -13,12 +13,7 @@ import {
 import {useRouter} from "next/router";
 
 export default function Header({...props}) {
-    const [heroImage, setHeroImage] = useState(false)
     const router = useRouter()
-
-    useEffect(() => {
-        router.pathname === "/" && setHeroImage(true)
-    }, [])
 
     return (
         <>
@@ -224,14 +219,14 @@ export default function Header({...props}) {
                 </div>
             </header>
 
-            {heroImage &&
+            {router.pathname === "/" &&
             <div className="hero h-72" style={{
                 backgroundImage: `url('./header_blog.png')`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'top',
                 backgroundRepeat: 'no-repeat',
             }}>
-                <div className="hero-overlay bg-opacity-60"/>
+                <div className="hero-overlay bg-opacity-50 shadow-md"/>
             </div>
             }
         </>

@@ -17,7 +17,7 @@ export default function Layout({...props}) {
             <div className='container mx-auto flex-grow'>
                 {props.children}
             </div>
-            <div className="ad-mobile visible xl:invisible h-24"
+            <div className="ad-mobile visible xl:invisible h-24 mt-5"
                  style={{
                      backgroundImage: `url('./codeboxx-logo.png')`,
                      backgroundSize: 'contain',
