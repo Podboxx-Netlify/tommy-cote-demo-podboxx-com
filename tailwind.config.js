@@ -3,6 +3,7 @@ const colors = require('tailwindcss/colors')
 module.exports = {
     purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
     darkMode: 'class', // or 'media' or 'class'
+    important: true,
     theme: {
         extend: {
             spacing: {
@@ -60,6 +61,9 @@ module.exports = {
                     },
                 },
             }),
+            screens: {
+                '2xl': '1750px'
+            }
         },
         container: {
             center: true,
