@@ -28,39 +28,6 @@ export default function Layout({...props}) {
             <div className='container mx-auto flex-grow'>
                 {props.children}
             </div>
-            {/*<div className="ad-mobile visible 2xl:invisible h-44 mt-5 mx-auto">*/}
-            {/*<a className='h-44'*/}
-            {/*     style={{*/}
-            {/*         backgroundImage: `url('./ad_300x250_school_A.png')`,*/}
-            {/*         backgroundSize: 'contain',*/}
-            {/*         backgroundPosition: 'top',*/}
-            {/*         backgroundRepeat: 'no-repeat',*/}
-            {/*     }}/>*/}
-            {/*<a className='h-44'*/}
-            {/*     style={{*/}
-            {/*         backgroundImage: `url('./ad_300x250_workshop_A.png')`,*/}
-            {/*         backgroundSize: 'contain',*/}
-            {/*         backgroundPosition: 'top',*/}
-            {/*         backgroundRepeat: 'no-repeat',*/}
-            {/*     }}/>*/}
-
-
-            {/*<a href='https://codeboxx.biz/' target="_blank"*/}
-            {/*   rel="noopener noreferrer"*/}
-            {/*   className="h-44 visible 2xl:invisible ml-2 pointer transform transition duration-500 hover:scale-105"*/}
-            {/*   style={{*/}
-            {/*       backgroundImage: `url('./ad_300x250_school_A.png')`,*/}
-            {/*       backgroundSize: 'contain',*/}
-            {/*       backgroundRepeat: 'no-repeat',*/}
-            {/*   }}/>*/}
-            {/*<a href='https://codeboxx.dev/' target="_blank"*/}
-            {/*   rel="noopener noreferrer"*/}
-            {/*   className="h-44 mt-5 visible 2xl:invisible ml-2 pointer transform transition duration-500 hover:scale-105 sticky"*/}
-            {/*   style={{*/}
-            {/*       backgroundImage: `url('./ad_300x250_workshop_A.png')`,*/}
-            {/*       backgroundSize: '350 250',*/}
-            {/*       backgroundRepeat: 'no-repeat',*/}
-            {/*   }}/>*/}
             <div className="mx-auto mt-5">
                 <a href='https://codeboxx.biz/' target="_blank"
                    rel="noopener noreferrer" className='visible 2xl:invisible'>
