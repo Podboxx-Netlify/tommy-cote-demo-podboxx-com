@@ -221,7 +221,7 @@ export default function Header({...props}) {
 
             {router.pathname === "/" &&
             <div className="hero h-72" style={{
-                backgroundImage: `url('./header_blog.webp')`,
+                backgroundImage: `url('./header_1600x500_A.webp')`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'top',
                 backgroundRepeat: 'no-repeat',
