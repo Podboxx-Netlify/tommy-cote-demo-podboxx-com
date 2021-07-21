@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import Image from 'next/image'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {
@@ -220,14 +220,16 @@ export default function Header({...props}) {
             </header>
 
             {router.pathname === "/" &&
-            <div className="hero h-72" style={{
-                backgroundImage: `url('./header_1600x500_A.webp')`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'top',
-                backgroundRepeat: 'no-repeat',
-            }}>
-                <div className="hero-overlay bg-opacity-50 shadow-md"/>
-            </div>
+            <Image
+                alt="Header"
+                src="/header_1600x500_A.webp"
+                objectFit='cover'
+                objectPosition='top'
+                width={1920}
+                height={400}
+                quality={100}
+                unoptimized={true}
+            />
             }
         </>
     );
