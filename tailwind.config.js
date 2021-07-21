@@ -62,7 +62,7 @@ module.exports = {
                 },
             }),
             screens: {
-                '2xl': '1750px'
+                '2xl': '1830px'
             }
         },
         container: {
